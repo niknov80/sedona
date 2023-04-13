@@ -2,16 +2,25 @@
 @use "../common/vars.scss" as *;
 @use "./media.scss" as *;
 
+@mixin wrap {
+  @include media-min(xl) {
+    width: 100%;
+    max-width: map.get($widths, xl);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 @mixin container {
   box-sizing: border-box;
-  width: map.get($widths, sm);
+  width: 100%;
+  min-width: map.get($widths, sm);
   padding-right: $gap-sm;
   padding-left: $gap-sm;
   margin-right: auto;
   margin-left: auto;
 
   @include media-min(md) {
-    width: 90%;
     min-width: map.get($widths, md);
     padding-right: $gap-md;
     padding-left: $gap-md;
