@@ -1,0 +1,19 @@
+{
+  "debug": true,
+  "site_name": "Sedona",
+  "menu": [
+    {
+      "title": "Главная",
+      "href": "index"
+    }, {
+      "title": "Форма",
+      "href": "form"
+    }, {
+      "title": "Фото",
+      "href": "photo"
+    }, {
+      "title": "Стайлгайд",
+      "href": "styleguide"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{% extends "base.j2" %}
+{% from "macros/svg.j2" import icon %}
+{% from "macros/routes.j2" import url_for %}
+
+{% set page = "index" %}
+
+{% block content %}
+  <h1>Главная</h1>
+  <p>Главная страница.</p>
+{% endblock content %}
+
+{% block js %}
+  <script>
+    console.log('Инлайн-скрипт только для главной страницы.');
+  </script>
+{% endblock js %}

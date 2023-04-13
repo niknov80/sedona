@@ -1,0 +1,50 @@
+{%- from "macros/form.j2" import base, btn -%}
+{% extends "base.j2" %}
+
+{% set page = "styleguide" %}
+
+{% block content %}
+  <h1>Стайлгайд</h1>
+  <h2>Заголовок второго уровня</h2>
+  <h3>Заголовок третьего уровня</h3>
+  <h4>Заголовок h4</h4>
+  <h5>Заголовок h5</h5>
+  <h6>Заголовок h6</h6>
+  <p>Параграф текста, несколько слов в предложении для понимания.</p>
+  <table>
+    <tr>
+      <th>Шапка таблицы 1</th>
+      <th>Шапка таблицы 2</th>
+      <th>Шапка таблицы 3</th>
+    </tr>
+    <tr>
+      <td>td1</td>
+      <td>td2</td>
+      <td>td3</td>
+    </tr>
+  </table>
+  <form class="form">
+    {{ base("Логин") }}
+    {{ base("Проверка", floating_label=False) }}
+    <div class="form__control form__control--floating">
+      <input class="form__text" id="login" type="text" placeholder="Логин">
+      <label class="form__label" for="login">Логин</label>
+    </div>
+    <div class="form__control form__control--floating">
+      <input class="form__text" id="email" type="email" placeholder="Email">
+      <label class="form__label" for="email">Email</label>
+    </div>
+    <div class="form__control form__control--floating form__control--valid">
+      <input class="form__text" id="email_valid" type="email" placeholder="Email" value="a@a">
+      <label class="form__label" for="email_valid">Email</label>
+    </div>
+    <div class="form__control form__control--floating form__control--error">
+      <input class="form__text" id="email_invalid" type="email" placeholder="Email" value="a">
+      <label class="form__label" for="email_invalid">Email</label>
+    </div>
+    <div class="form__control">
+      <input class="form__text" placeholder="Обязательное поле" required>
+    </div>
+    <button class="form__submit" type="submit">Отправить</button>
+  </form>
+{% endblock content %}

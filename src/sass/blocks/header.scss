@@ -1,0 +1,8 @@
+@use "../mixins/layout.scss" as *;
+
+.header {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: var(--color-tertiary);
+}
+.header__wrap { @include container; }
