@@ -30,7 +30,6 @@ body {
 
   @include media-min(sm) { min-width: map.get($widths, sm); }
   @include media-min(md) { min-width: map.get($widths, md); }
-  @include media-min(lg) { min-width: map.get($widths, lg); }
   @include media-min(xl) { min-width: map.get($widths, xl); }
 }
 
