@@ -27,27 +27,11 @@
   {% include "header.j2" %}
 
   <main class="main">
-    <div class="main__wrap">
-      {% block content %}{% endblock content %}
-    </div>
+    {% block content %}{% endblock content %}
   </main>
 
-  <footer class="footer">
-    <div class="footer__wrap">
-      Футер
-      Тестовый набор иконок:
-      {{ icon('home', class_name='test') }}
-      {{ icon('edit') }}
-      {{ icon('tool') }}
-      {{ icon('star', 64, 64) }}
-    </div>
-  </footer>
+  {% include "footer.j2" %}
 
-  <script>
-    console.log('Привет из инлайн-скрипта, отрабатывает на всех страницах.');
-  </script>
   <script src="{{ url_for('static', filename='js/script.min.js') }}"></script>
-
-  {% block js %}{% endblock js %}
 </body>
 </html>
