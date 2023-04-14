@@ -1,10 +1,11 @@
 @use "../mixins/layout.scss" as *;
 
 .footer {
-  @include wrap;
-
   padding-top: 1rem;
   padding-bottom: 1rem;
   background-color: var(--color-tertiary);
 }
 
+.footer__wrapper {
+  @include wrap;
+}

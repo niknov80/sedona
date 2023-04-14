@@ -1,9 +1,11 @@
 @use "../mixins/layout.scss" as *;
 
 .header {
-  @include wrap;
-
   padding-top: 2rem;
   padding-bottom: 2rem;
   background-color: var(--color-tertiary);
+}
+
+.header__wrapper {
+  @include wrap;
 }
