@@ -27,7 +27,9 @@
   {% include "header.j2" %}
 
   <main class="main">
-    {% block content %}{% endblock content %}
+    <div class="main__wrapper">
+      {% block content %}{% endblock content %}
+    </div>
   </main>
 
   {% include "footer.j2" %}
