@@ -2,6 +2,7 @@
 @use "sass:color";
 @use "../mixins/media.scss" as *;
 @use "../mixins/layout.scss" as *;
+
 .site-nav {
   position: relative;
   background-color: var(--color-primary);
@@ -148,7 +149,7 @@
   cursor: pointer;
   border: none;
   background-color: transparent;
-  background-image: url(../img/icon-cross.svg);
+  background-image: url("../img/icon-cross.svg");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 22px;
@@ -160,5 +161,5 @@
 }
 
 .site-nav--close .site-nav__toggle {
-  background-image: url(../img/icon-menu.svg);
+  background-image: url("../img/icon-menu.svg");
 }
