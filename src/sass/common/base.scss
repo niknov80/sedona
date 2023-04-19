@@ -5,10 +5,19 @@
 @use "../common/vars.scss" as *;
 
 :root {
-  --color-base: #{$color-base};
-  --color-bold: #{$color-bold};
+  --color-text-base: #{$color-text-base};
+  --color-text-bold: #{$color-text-bold};
+  --color-text-light: #{$color-text-light};
+  --color-text-active: #{$color-text-active};
+  --color-text-active-hover: #{$color-text-active-hover};
+  --color-text-bold-active: #{color.adjust($color-text-bold, $alpha: -0.6)};
+  --color-text-light-active: #{color.adjust($color-text-light, $alpha: -0.6)};
+  --color-text-active-active: #{color.adjust($color-text-active, $alpha: -0.6)};
   --color-bg: #{$color-bg};
+  --color-bg-body: #{$color-bg-body};
   --color-primary: #{$color-primary};
+  --color-primary-hover: #{$color-primary-hover};
+  --color-primary-active: #{$color-primary-active};
   --color-secondary: #{$color-secondary};
   --color-tertiary: #{$color-tertiary};
   --color-hover: #{color.adjust($color-primary, $lightness: -15%)};
@@ -23,10 +32,10 @@ body {
   min-width: map.get($widths, xs);
   min-height: 100%;
   margin: 0;
-  font: list.slash($font-size, $line-height) $font-family;
-  color: $color-base;
+  font: $font-weight list.slash($font-size, $line-height) $font-family;
+  color: $color-text-base;
   letter-spacing: $letter-spacing;
-  background-color: $color-bg;
+  background-color: var(--color-bg-body);
 
   @include media-min(sm) { min-width: map.get($widths, sm); }
   @include media-min(md) { min-width: map.get($widths, md); }
