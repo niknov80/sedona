@@ -12,4 +12,12 @@ const isWebP = () => {
   });
 }
 
+const menu = document.querySelector('.js-nav');
+const toggler = document.querySelector('.js-toggler');
+
+toggler.addEventListener('click', ()=> {
+  menu.classList.toggle('site-nav--close');
+})
+
 export {isWebP};
+;

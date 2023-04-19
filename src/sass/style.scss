@@ -1,9 +1,9 @@
-// @use "common/fonts.scss";
+@use "common/fonts.scss";
 @use "common/normalize.scss";
 @use "common/base.scss";
-@use "common/theme.scss";
+@use "blocks/visually-hidden.scss";
 @use "blocks/header.scss";
-@use "blocks/nav.scss";
+@use "blocks/site-nav";
 @use "blocks/main.scss";
 @use "blocks/footer.scss";
 @use "blocks/form.scss";
