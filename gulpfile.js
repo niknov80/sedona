@@ -6,6 +6,7 @@ import csso from 'postcss-csso';
 import data from 'gulp-data';
 import { deleteSync } from 'del';
 import esbuild from 'gulp-esbuild';
+import fonter from "gulp-fonter";
 import fs from 'fs';
 import notify from 'gulp-notify';
 import plumber from 'gulp-plumber';
@@ -16,6 +17,7 @@ import sass from 'gulp-dart-sass';
 import sharpOptimizeImages from 'gulp-sharp-optimize-images';
 import svgmin from 'gulp-svgmin';
 import svgstore from 'gulp-svgstore';
+import ttf2woff2 from "gulp-ttf2woff2";
 const { src, dest, watch, parallel, series } = gulp;
 
 /**
@@ -214,8 +216,33 @@ const images = ()  => src(`${path.images.root}/**/*.{png,jpg,jpeg}`)
 
 export const image = parallel(svgImages, svgImg, img, images, sprite);
 
-const fonts = () => src(`${dirs.src}/fonts/*.{woff,woff2}`)
-  .pipe(dest(`${dirs.dest}/static/fonts/`))
+export const otfToTtf = () => src(`${path.fonts.root}/*.otf`, {})
+  .pipe(plumber(notify.onError({
+    title: 'FONTS',
+    message: 'Error: <%= error.message %>'
+  })))
+  .pipe(fonter({
+    formats: ['ttf']
+  }))
+  .pipe(dest(path.fonts.root));
+
+export const ttfToWoff = () => src(`${path.fonts.root}/*.ttf`, {})
+  .pipe(plumber(notify.onError({
+    title: 'FONTS',
+    message: 'Error: <%= error.message %>'
+  })))
+  .pipe(fonter({
+    formats: ['woff']
+  }))
+  .pipe(dest(path.fonts.save))
+  .pipe(src(`${path.fonts.root}/*.ttf`))
+  .pipe(ttf2woff2())
+  .pipe(dest(path.fonts.save));
+
+export const copyWoff = () => src(`${path.fonts.root}/*.{woff,woff2}`)
+  .pipe(dest(path.fonts.save));
+
+export const fonts = series(otfToTtf, parallel(ttfToWoff, copyWoff))
 
 const vendorStyles = () => src(`${path.vendor.styles}*.min.css`)
   .pipe(dest(`${path.styles.save}`))
