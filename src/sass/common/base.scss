@@ -3,6 +3,7 @@
 @use "sass:map";
 @use "../mixins/media.scss" as *;
 @use "../common/vars.scss" as *;
+@use "../mixins/layout.scss" as *;
 
 :root {
   --color-text-base: #{$color-text-base};
